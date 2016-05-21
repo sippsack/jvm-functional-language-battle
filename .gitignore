@@ -4,7 +4,7 @@
 01-luhn-java/bin/
 02-luhn-groovy/bin/
 04-luhn-scala/bin/
-04-luhn-03-luhn-javascript/node_modules/
+03-luhn-javascript/node_modules/
 05-luhn-frege/bin/
 06-luhn-java-8/bin/
 07-luhn-functional-java-8/bin/
