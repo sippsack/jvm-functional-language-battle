@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/00-common"/>
+	<classpathentry kind="lib" path="lib/functionaljava-4.5.jar" sourcepath="lib/functionaljava-4.5-sources.jar"/>
+	<classpathentry kind="lib" path="lib/functionaljava-java-core-4.5.jar"/>
+	<classpathentry kind="lib" path="lib/functionaljava-java8-4.5.jar"/>
+	<classpathentry kind="lib" path="lib/functionaljava-quickcheck-4.5.jar"/>
+	<classpathentry kind="lib" path="lib/javaslang-2.0.2.jar" sourcepath="lib/javaslang-2.0.2-sources.jar"/>
+	<classpathentry kind="lib" path="lib/lombok.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

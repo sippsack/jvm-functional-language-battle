@@ -1,0 +1,9 @@
+module de.oio.luhn.Luhn where
+
+toDigits :: Integer -> [Integer]
+toDigits n | n < 0 = error "n must be 0 or greater"
+toDigits 0 = []
+toDigits n = toDigits (n `div` 10) ++ [(n `mod` 10)]
+
+main args = do
+  println (toDigits 1234)
