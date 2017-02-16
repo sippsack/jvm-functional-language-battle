@@ -16,7 +16,8 @@ public class LuhnAlgorithmTests extends AbstractTest {
 
 	@Test
 	public void algorithmWithPreJava8Variant1() {
-		assertTrue(String.format("credit card type %s with number %s", creditCardType, creditCardNumber), LuhnAlgorithm.isValid(creditCardNumber));
+		assertTrue(String.format("credit card type %s with number %s", creditCardType, creditCardNumber), LuhnAlgorithm.isValid(Long.parseLong(creditCardNumber)));
+		assertTrue(String.format("credit card type %s with number %s", creditCardType, creditCardNumber), de.oio.luhn.alt.LuhnAlgorithm.isValid(creditCardNumber));
 	}
 	
 	@Test

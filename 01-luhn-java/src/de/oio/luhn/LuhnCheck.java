@@ -4,11 +4,7 @@ public class LuhnCheck {
 
 	public static boolean isValid(long number) {
 		int total = sumOfDoubleEvenPlace(number) + sumOfOddPlace(number);
-		if (total % 10 == 0) {
-			return true;
-		} else {
-			return false;
-		}
+		return total % 10 == 0;
 	}
 
 	public static int sumOfOddPlace(long number) {

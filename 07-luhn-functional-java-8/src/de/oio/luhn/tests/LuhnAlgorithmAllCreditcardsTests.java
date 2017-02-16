@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import de.oio.luhn.LuhnAlgorithmJava8FunctionalJava;
+import de.oio.luhn.functional_java.LuhnAlgorithmJava8FunctionalJava;
 
 public class LuhnAlgorithmAllCreditcardsTests {
 	protected static List<Long> creditcards = Arrays.asList(4716347184862961L, 4532899082537349L,

@@ -1,21 +1,34 @@
 package de.oio.luhn;
 
 public class LuhnAlgorithm {
-	public static boolean isValid(String number) {
-		int s1 = 0, s2 = 0;
-		String reverse = new StringBuffer(number).reverse().toString();
-		for (int i = 0; i < reverse.length(); i++) {
-			int digit = Character.digit(reverse.charAt(i), 10);
-			if (i % 2 == 0) {
-				s1 += digit;
-			} else {
-				s2 += 2 * digit;
+	public static boolean isValid(long number) {
+		int sum = 0;
+		boolean alternate = false;
+		while(number > 0) {
+			long digit = number % 10;
+			if (alternate) {
+				sum += 2 * digit;
 				if (digit >= 5) {
-					s2 -= 9;
+					sum -= 9;
 				}
+			} else {
+				sum += digit;
 			}
+			number = number / 10;
+			alternate = !alternate;
 		}
-		return (s1 + s2) % 10 == 0;
+		return sum % 10 == 0;
 	}
-}
 
+	public static boolean isValid(String number) {
+		return isValid(Long.parseLong(number));
+	}
+
+	public static void main(String[] args) {
+		System.out.println(String.format("234567 is valid: %s", isValid(234567L)));
+		System.out.println(String.format("234567 is valid: %s", isValid("234567")));
+		System.out.println(String.format("1234567 is valid: %s", isValid(1234567)));
+		System.out.println(String.format("1234567 is valid: %s", isValid("1234567")));
+	}
+	
+}

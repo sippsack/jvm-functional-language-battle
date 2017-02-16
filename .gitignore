@@ -9,3 +9,5 @@
 06-luhn-java-8/bin/
 07-luhn-functional-java-8/bin/
 RemoteSystemsTempFiles/
+*.log
+*.iml

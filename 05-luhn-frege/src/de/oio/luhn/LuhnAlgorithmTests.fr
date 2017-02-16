@@ -1,0 +1,8 @@
+module de.oio.luhn.LuhnAlgorithmTests where
+
+import de.oio.luhn.LuhnAlgorithm(isValid, isValid', isValid'')
+
+main _ = do
+    println (isValid 4_012_888_888_881_881n)
+    println (isValid' 4_012_888_888_881_881n)
+    println (isValid'' "4012888888881881")

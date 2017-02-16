@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import de.oio.luhn.AbstractTest;
-import de.oio.luhn.LuhnAlgorithmJava8FunctionalJava;
+import de.oio.luhn.functional_java.LuhnAlgorithmJava8FunctionalJava;
 
 public class LuhnAlgorithmTests extends AbstractTest {
 

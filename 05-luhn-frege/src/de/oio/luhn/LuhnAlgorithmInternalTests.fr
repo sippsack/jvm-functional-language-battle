@@ -1,0 +1,14 @@
+module de.oio.luhn.LuhnAlgorithmInternalTests where
+
+import de.oio.luhn.LuhnAlgorithm(string2Number, toDigits, double2nd, double2nd', sumDigits, sumDigits', mod10, eq0)
+
+main _ = do
+  println(string2Number "123") 
+  println(toDigits 123n)
+  println(double2nd [1,2,3,4])
+  println(double2nd' [1,2,3,4])
+  println(sumDigits [1,2,3,4])
+  println(sumDigits' [1,2,3,4])
+  println(mod10 35)
+  println(eq0 5)
+  println(eq0 0)

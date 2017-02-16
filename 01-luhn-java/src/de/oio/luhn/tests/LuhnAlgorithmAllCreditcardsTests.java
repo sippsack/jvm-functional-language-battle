@@ -44,7 +44,8 @@ public class LuhnAlgorithmAllCreditcardsTests {
 
 	@Test
 	public void testAllCreditCardsPreJava8() throws Exception {
-		assertEquals(94, creditcards.stream().map(Object::toString).filter(LuhnAlgorithm::isValid).count());
+		assertEquals(94, creditcards.stream().filter(LuhnAlgorithm::isValid).count());
+		assertEquals(94, creditcards.stream().map(Object::toString).filter(de.oio.luhn.alt.LuhnAlgorithm::isValid).count());
 	}
 
 }

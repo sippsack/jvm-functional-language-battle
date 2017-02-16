@@ -1,0 +1,48 @@
+module de.oio.luhn.LuhnAlgorithm where
+
+string2Number :: String -> Integer
+string2Number s = s.aton
+
+toDigits :: Integer -> [Integer]
+toDigits n | n < 0 = error "n must be 0 or greater"
+toDigits 0 = []
+toDigits n = toDigits (n `div` 10) ++ [(n `mod` 10)]
+
+double2nd :: [Integer] -> [Integer]
+double2nd = zipWith (\x y -> x * y) (cycle [1, 2])
+
+double2nd' :: [Integer] -> [Integer]
+double2nd' = zipWith (*) (cycle [1, 2])
+
+-- alternative to double2nd
+double2nd'' :: [Integer] -> [Integer]
+double2nd'' [] = []
+double2nd'' [x] = [x]
+double2nd'' (x : x' : xs) = x : 2 * x' : double2nd xs
+
+sumDigits :: [Integer] -> Integer
+sumDigits xs = sum (concat (map toDigits xs))
+
+sumDigits' :: [Integer] -> Integer
+sumDigits' = sum . concat . map toDigits
+
+divisibleBy10 :: Integer -> Bool
+divisibleBy10 n = n `mod` 10 == 0
+divisibleBy10' n = (==) 0 (mod n 10)
+
+mod10 :: Integer -> Integer
+mod10 n = mod n 10
+
+eq0 :: Integer -> Bool
+eq0 = (==) 0
+
+isValid :: Integer -> Bool
+isValid n = eq0 (mod10 (sumDigits (double2nd (reverse (toDigits n)))))
+
+-- alternative to isValid with function composition
+isValid' :: Integer -> Bool
+isValid' n = (==) 0 . mod10 . sumDigits . double2nd . reverse . toDigits $ n
+
+-- alternative to isValid with a string as input parameter
+isValid'' :: String -> Bool
+isValid'' = divisibleBy10 . sumDigits . double2nd . reverse . toDigits . string2Number
