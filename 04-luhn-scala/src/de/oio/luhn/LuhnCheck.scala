@@ -2,11 +2,6 @@ package de.oio.luhn
 
 object LuhnCheck extends App {
   
-  println(isValid("4716347184862961"))
-  println(isValid("4012888888881891"))
-  println(numValid(creditcards))
-  println(doubleSecond(digitSeqToInt("4012888888881891".reverse)) mkString(""))
-
   def digitToInt(x: Char) = x.toInt - '0'.toInt
 
   def digitSeqToInt(ds: Seq[Char]) = ds map digitToInt _
@@ -15,7 +10,14 @@ object LuhnCheck extends App {
 
   def isValid(cc: String) = (digitSeqToInt(doubleSecond(digitSeqToInt(cc.reverse)) mkString ("")) sum) % 10 == 0
 
+  println(isValid("4716347184862961"))
+  println(isValid("4012888888881891"))
+
   def numValid(list: List[Long]): Long = list map (l => l.toString()) filter (isValid) map (_ => 1L) sum
+
+  println(numValid(creditcards))
+  
+  println(doubleSecond(digitSeqToInt("4012888888881891".reverse)) mkString(""))
 
   def creditcards: List[Long] = List(4716347184862961L, 4532899082537349L,
     4485429517622493L, 4320635998241421L, 4929778869082405L, 5256283618614517L,

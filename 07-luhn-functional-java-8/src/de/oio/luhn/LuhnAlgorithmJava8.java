@@ -10,7 +10,9 @@ import java.util.stream.Stream;
 public class LuhnAlgorithmJava8 {
 
 	static Function<Long, List<Long>> toDigits = 
-			number -> number <= 0 ? Collections.emptyList() : Stream.concat(LuhnAlgorithmJava8.toDigits.apply(number / 10).stream(), Stream.of(number % 10)).collect(Collectors.toList());
+			number -> number <= 0 
+						? Collections.emptyList() 
+						: Stream.concat(LuhnAlgorithmJava8.toDigits.apply(number / 10).stream(), Stream.of(number % 10)).collect(Collectors.toList());
 	
 	static List<Long> toDigits2(Long number) {
 		return number <= 0 ? Collections.emptyList() : Stream.concat(toDigits2(number / 10).stream(), Stream.of(number % 10)).collect(Collectors.toList());
