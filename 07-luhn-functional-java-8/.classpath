@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="lib/functionaljava-quickcheck-4.5.jar"/>
 	<classpathentry kind="lib" path="lib/javaslang-2.0.2.jar" sourcepath="lib/javaslang-2.0.2-sources.jar"/>
 	<classpathentry kind="lib" path="lib/lombok.jar"/>
+	<classpathentry kind="lib" path="lib/vavr-0.9.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

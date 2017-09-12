@@ -3,8 +3,10 @@ package de.oio.luhn;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.PrimitiveIterator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class LuhnAlgorithmJava8 {
@@ -25,8 +27,8 @@ public class LuhnAlgorithmJava8 {
 	};
 
 	static Function<List<Long>, List<Long>> double2nd = digits -> {
-		Ref<Boolean> even = new Ref<>(false);
-		return digits.stream().map(digit -> {Long result = digit * (even.get() ? 2 : 1); even.set(!even.get()); return result;}).collect(Collectors.toList());
+		PrimitiveIterator.OfInt faktor = IntStream.iterate(1, i -> 3 - i).iterator();
+		return digits.stream().map(digit -> digit * faktor.nextInt()).collect(Collectors.toList());
 	};
 	
 	static Function<List<Long>, Long> sumDigits = list ->
@@ -54,21 +56,5 @@ public class LuhnAlgorithmJava8 {
 		System.out.println(isValid2(234567L));
 		System.out.println(isValid.apply(4012888888881881L));
 		System.out.println(isValid(4012888888881881L));
-	}
-
-	static class Ref<T> {
-		private T value;
-
-		Ref(T value) {
-			this.value = value;
-		}
-		
-		T get() {
-			return this.value;
-		}
-		
-		void set(T value) {
-			this.value = value;
-		}
 	}
 }

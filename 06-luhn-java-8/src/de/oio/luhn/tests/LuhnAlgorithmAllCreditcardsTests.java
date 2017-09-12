@@ -1,6 +1,6 @@
 package de.oio.luhn.tests;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,6 +8,7 @@ import java.util.List;
 import org.junit.Test;
 
 import de.oio.luhn.LuhnAlgorithmJava8;
+import de.oio.luhn.thomas_much.Luhn;
 
 public class LuhnAlgorithmAllCreditcardsTests {
 	protected static List<Long> creditcards = Arrays.asList(4716347184862961L, 4532899082537349L,
@@ -45,6 +46,11 @@ public class LuhnAlgorithmAllCreditcardsTests {
 	@Test
 	public void testAllCreditCardsJava8() throws Exception {
 		assertEquals(94, creditcards.stream().map(Object::toString).filter(LuhnAlgorithmJava8::isValid).count());
+	}
+	
+	@Test
+	public void testLoesungThomasMuch() throws Exception {
+		assertEquals(94, creditcards.stream().map(Object::toString).filter(Luhn::isValid).count());
 	}
 	
 }
