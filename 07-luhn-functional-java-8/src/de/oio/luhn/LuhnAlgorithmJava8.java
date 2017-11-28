@@ -36,25 +36,8 @@ public class LuhnAlgorithmJava8 {
 
 	static Function<Long, Boolean> divisibleBy10 = number -> 0 == number % 10;
 		
-	static Function<Long, Boolean> isValid = number -> divisibleBy10.compose(sumDigits).compose(double2nd).compose(reverse).compose(toDigits).apply(number);
-
-	static boolean isValid(Long number) {
-		return divisibleBy10.apply(sumDigits.apply(double2nd.apply(reverse.apply(toDigits.apply(number)))));
-	}
-
-	static boolean isValid2(Long number) {
-		return divisibleBy10.compose(sumDigits).compose(double2nd).compose(reverse).compose(toDigits).apply(number);
-	}
-
-	public static void main(String[] args) {
-		System.out.println(toDigits.apply(1234L));
-		System.out.println(reverse.apply(toDigits2(1234L)));
-		
-		System.out.println(isValid(23456L));
-		System.out.println(isValid(234567L));
-		System.out.println(isValid2(23456L));
-		System.out.println(isValid2(234567L));
-		System.out.println(isValid.apply(4012888888881881L));
-		System.out.println(isValid(4012888888881881L));
-	}
+	static Function<Long, Boolean> isValid = number -> divisibleBy10.compose(sumDigits)
+			.compose(double2nd).compose(reverse).compose(toDigits).apply(number);
 }
+
+

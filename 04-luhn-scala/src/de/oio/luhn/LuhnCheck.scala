@@ -8,7 +8,9 @@ object LuhnCheck extends App {
 
   def doubleSecond(xs: Seq[Int]) = (xs zip Stream.continually(List(1,2).toStream).flatten).map(p => p._1 * p._2)
 
-  def isValid(cc: String) = (digitSeqToInt(doubleSecond(digitSeqToInt(cc.reverse)) mkString ("")) sum) % 10 == 0
+  def divisibleBy10(n: Int) = n % 10 == 0
+  
+  def isValid(cc: String) = divisibleBy10(digitSeqToInt(doubleSecond(digitSeqToInt(cc.reverse)) mkString ("")) sum)
 
   println(isValid("4716347184862961"))
   println(isValid("4012888888881891"))
