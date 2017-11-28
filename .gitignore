@@ -11,3 +11,6 @@
 RemoteSystemsTempFiles/
 *.log
 *.iml
+03-luhn-kotlin/bin/
+05-luhn-frege/.settings/
+04-luhn-scala/.cache-main
